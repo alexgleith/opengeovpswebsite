@@ -168,7 +168,7 @@
         var parameters = L.Util.extend(defaultParameters, customParams);
 
         var theURL = rootURL + 'geoserver/ows'+ L.Util.getParamString(parameters)
-        console.log(theURL);
+        //console.log(theURL);
 
         $.ajax({
             url : theURL,
@@ -216,5 +216,7 @@
     L.control.layers(baselayers, lOverlays, {position: 'topleft'}).addTo(map);
     //Search control
     L.control.searchControl().addTo(map);
+    //Scale control
+    L.control.scale({metric: false}).addTo(map);
     </script>
 </html>
