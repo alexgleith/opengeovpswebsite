@@ -47,11 +47,13 @@
     var src = new Proj4js.Proj('EPSG:4326');
     var dst = new Proj4js.Proj('EPSG:2883');
 
-    var ggl = new L.Google();
-    var ggl2 = new L.Google('TERRAIN');
+    var ggl = new L.Google('HYBRID');
+    var gglAerial = new L.Google();
+    var gglTerrain = new L.Google('TERRAIN');
     var baselayers = {
         "Google": ggl,
-        "Google Terrain": ggl2
+        "Google Aerial": gglAerial,
+        "Google Terrain": gglTerrain
     };
     map.addLayer(ggl)
 
@@ -140,6 +142,9 @@
     var queryCoordinates;
 
     map.on('click', function(e) {
+        if (selectedFeature) {
+            map.removeLayer(selectedFeature);
+        };
         var p = new Proj4js.Point(e.latlng.lng,e.latlng.lat);
         Proj4js.transform(src, dst, p);
         queryCoordinates = e.latlng
