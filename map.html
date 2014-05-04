@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Test Map</title>
+    <title>GIS Map</title>
 
     <script type="text/javascript" src="src/leaflet/leaflet.js"></script>
     <link type="text/css" rel="stylesheet" href="src/leaflet/leaflet.css" />
@@ -209,7 +209,7 @@
     L.control.locate({
         position: 'topright',
         drawCircle: true,
-        follow: true,
+        follow: false,
         metric: false
     }).addTo(map);
     //Zoom control
